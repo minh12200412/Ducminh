@@ -1,0 +1,81 @@
+body {
+  background-color: black;
+  margin: 0;
+}
+h1 {
+  color: aquamarine;
+  text-align: center;
+  text-transform: uppercase;
+  filter: drop-shadow(1px 1px 20px aquamarine);
+  transition: all 5s ease-out 0.2s;
+  font-weight: bold;
+}
+h1:hover {
+  font-size: 2.4rem;
+  box-shadow: 0 0 20px;
+  box-shadow: 0 0 20px aquamarine, 0 0 25px aquamarine, 0 0 50px aquamarine;
+}
+#content {
+  background-color: aquamarine;
+  box-sizing: border-box;
+  width: 350px;
+  height: 400px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px cyan, 0 0 25px cyan, 0 0 30px cyan;
+}
+p {
+  /* display: flex; */
+  margin: 0 auto;
+  padding-top: 20px;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+strong {
+  color: red;
+}
+#note {
+  color: darkturquoise;
+}
+img {
+  margin-top: 10px;
+  height: 170px;
+  width: 95%;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 15px;
+}
+button {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  display: inline-block;
+  padding: 20px 40px;
+  margin: 18px 0;
+  color: #03e9f4;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.9s;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background-color: black;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  transform: rotateZ(0.2deg) translate(0.2em);
+  /* transition: transform 0.3s ease; */
+}
+a {
+  text-decoration: none;
+  color: #03e9f4;
+  font-weight: bold;
+}
+
+button:hover {
+  transform: rotateZ(0.2deg) translate(0.2em, -0.6em);
+  color: black;
+  background-color: pink;
+  border: #03e9f4;
+  box-shadow: 0 0 15px pink, 0 0 25px pink, 0 0 50px pink, 0 0 100px pink;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oleo+Script:wght@400;700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css.css" />
+    <title>Đức Minh</title>
+    <script>
+      window.onload = function() {
+  // Lấy ngày hiện tại
+  var today = new Date().toDateString();
+
+  // Lấy ngày cuối cùng mà số tiền nợ được cập nhật
+  var lastUpdate = localStorage.getItem('lastUpdate');
+
+  // Nếu ngày hiện tại khác với ngày cuối cùng cập nhật
+  if (today !== lastUpdate) {
+    // Tìm đến phần tử chứa số tiền nợ
+    var debtElement = document.querySelector("#content p:nth-child(2) strong");
+
+    // Lấy số tiền nợ hiện tại (loại bỏ ký tự 'M' và chuyển thành số)
+    var currentDebt = parseInt(debtElement.innerText);
+
+    // Tăng số tiền nợ lên 1
+    var newDebt = currentDebt + 1;
+
+    // Cập nhật số tiền nợ trên giao diện
+    debtElement.innerText = newDebt + 'M';
+
+    // Lưu số tiền nợ mới vào localStorage
+    localStorage.setItem('debt', newDebt);
+
+    // Cập nhật ngày cuối cùng mà số tiền nợ được cập nhật
+    localStorage.setItem('lastUpdate', today);
+  } else {
+    // Nếu ngày hiện tại là ngày cuối cùng cập nhật, lấy số tiền nợ từ localStorage
+    var debt = localStorage.getItem('debt');
+
+    // Cập nhật số tiền nợ trên giao diện
+    document.querySelector("#content p:nth-child(2) strong").innerText = debt + 'M';
+  }
+}
+
+document.getElementById('content-btn').addEventListener('click', function() {
+  location.reload();
+});
+    </script>
+  </head>
+  <body>
+    <h1>
+      Chào bạn, ở đây là trang wep đòi nợ <br />
+      -_-
+    </h1>
+    <div id="content">
+      <p>Người nợ: <strong id="note">Thị Khánh</strong></p>
+      <p>Số tiền nợ: <strong>4M</strong> Chip</p>
+      <p>Ngày trả: Chưa biết ngày trả</p>
+      <img src="img/Screenshot_20240507_100856.png" alt="" />
+      <button id="content-btn" onclick="location.reload();""><a href="#"></a>Kiểm tra tiền nợ</button>
+    </div>
+  </body>
+</html>
