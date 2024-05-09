@@ -20,56 +20,72 @@
     <title>Đức Minh</title>
     <script>
       window.onload = function() {
-  // Lấy ngày hiện tại
-  var today = new Date().toDateString();
-
-  // Lấy ngày cuối cùng mà số tiền nợ được cập nhật
-  var lastUpdate = localStorage.getItem('lastUpdate');
-
-  // Nếu ngày hiện tại khác với ngày cuối cùng cập nhật
-  if (today !== lastUpdate) {
-    // Tìm đến phần tử chứa số tiền nợ
-    var debtElement = document.querySelector("#content p:nth-child(2) strong");
-
-    // Lấy số tiền nợ hiện tại (loại bỏ ký tự 'M' và chuyển thành số)
-    var currentDebt = parseInt(debtElement.innerText);
-
-    // Tăng số tiền nợ lên 1
-    var newDebt = currentDebt + 1;
-
-    // Cập nhật số tiền nợ trên giao diện
-    debtElement.innerText = newDebt + 'M';
-
-    // Lưu số tiền nợ mới vào localStorage
-    localStorage.setItem('debt', newDebt);
-
-    // Cập nhật ngày cuối cùng mà số tiền nợ được cập nhật
-    localStorage.setItem('lastUpdate', today);
-  } else {
-    // Nếu ngày hiện tại là ngày cuối cùng cập nhật, lấy số tiền nợ từ localStorage
-    var debt = localStorage.getItem('debt');
-
-    // Cập nhật số tiền nợ trên giao diện
-    document.querySelector("#content p:nth-child(2) strong").innerText = debt + 'M';
-  }
-}
-
-document.getElementById('content-btn').addEventListener('click', function() {
-  location.reload();
-});
-    </script>
+        // Lấy ngày hiện tại
+        var today = new Date().toISOString().split('T')[0];
+    
+        // Lấy ngày cuối cùng mà số tiền nợ được cập nhật
+        var lastUpdate = localStorage.getItem('lastUpdate');
+    
+        // Nếu ngày hiện tại khác với ngày cuối cùng cập nhật
+        if (today !== lastUpdate) {
+          // Tìm đến phần tử chứa số tiền nợ
+          var debtElement = document.querySelector(".note");
+    
+          // Lấy số tiền nợ hiện tại (loại bỏ ký tự 'M' và chuyển thành số)
+          var currentDebt = parseInt(debtElement.innerText);
+    
+          // Tăng số tiền nợ lên 1
+          var newDebt = currentDebt + 1;
+    
+          // Cập nhật số tiền nợ trên giao diện
+          debtElement.innerText = newDebt + 'M';
+    
+          // Lưu số tiền nợ mới vào localStorage
+          localStorage.setItem('debt', newDebt);
+    
+          // Cập nhật ngày cuối cùng mà số tiền nợ được cập nhật
+          localStorage.setItem('lastUpdate', today);
+        } else {
+          // Nếu ngày hiện tại là ngày cuối cùng cập nhật, lấy số tiền nợ từ localStorage
+          var debt = localStorage.getItem('debt');
+    
+          // Cập nhật số tiền nợ trên giao diện
+          document.querySelector("#content p:nth-child(2) strong").innerText = debt + 'M';
+        }
+      }
+    
+      document.getElementById('content-btn').addEventListener('click', function() {
+        location.reload();
+      });
+    </script>    
   </head>
   <body>
     <h1>
       Chào bạn, ở đây là trang wep đòi nợ <br />
       -_-
     </h1>
-    <div id="content">
-      <p>Người nợ: <strong id="note">Thị Khánh</strong></p>
-      <p>Số tiền nợ: <strong>4M</strong> Chip</p>
-      <p>Ngày trả: Chưa biết ngày trả</p>
-      <img src="img/Screenshot_20240507_100856.png" alt="" />
-      <button id="content-btn" onclick="location.reload();""><a href="#"></a>Kiểm tra tiền nợ</button>
+    <div id="header-main">
+      <div class="content one">
+        <p>Người nợ: <strong id="note">Thị Khánh</strong></p>
+        <p>Số tiền nợ: <strong class="note">6M</strong> Chip</p>
+        <p>Ngày trả: Chưa biết ngày trả</p>
+        <img src="img/Screenshot_20240507_100856.png" alt="" />
+        <button id="content-btn" onclick="location.reload();""><a href="#"></a>Kiểm tra tiền nợ</button>
+      </div>
+        <div class="content two">
+        <p>Người nợ: <strong id="note">Thị Khánh</strong></p>
+        <p>Số tiền nợ: <strong class="note">6M</strong> Chip</p>
+        <p>Ngày trả: Chưa biết ngày trả</p>
+        <img src="img/Screenshot_20240507_100856.png" alt="" />
+        <button id="content-btn" onclick="location.reload();""><a href="#"></a>Kiểm tra tiền nợ</button>
+      </div>
+        <div class="content three">
+        <p>Người nợ: <strong id="note">Thị Khánh</strong></p>
+        <p>Số tiền nợ: <strong class="note">6M</strong> Chip</p>
+        <p>Ngày trả: Chưa biết ngày trả</p>
+        <img src="img/Screenshot_20240507_100856.png" alt="" />
+        <button id="content-btn" onclick="location.reload();""><a href="#"></a>Kiểm tra tiền nợ</button>
+      </div>
     </div>
   </body>
 </html>
